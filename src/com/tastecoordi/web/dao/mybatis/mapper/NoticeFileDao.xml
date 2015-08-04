@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tastecoordi.web.dao.NoticeFileDao">
+
+	<!-- 15.07.10 공지사항 파일 추가 -->
+
+
+	<insert id="addNoticeFile" parameterType="com.tastecoordi.web.vo.NoticeFile">
+		<selectKey keyProperty="code" order="BEFORE" resultType="String">
+			select IsNull (max(cast (code As INT)),0)+1 code from NOTICEFILES;
+		</selectKey>
+
+		INSERT INTO NOTICEFILES(
+		CODE,
+		NAME,
+		NOTICENUMBER
+		)
+		Values(
+		#{code},
+		#{name},
+		#{noticeNumber}
+		)
+	</insert>
+	
+	<select id = "getNoticeFilesOfNotice" parameterType = "string" resultType = "com.tastecoordi.web.vo.NoticeFile">
+		SELECT * FROM NoticeFiles Where NoticeNumber = #{number}
+	</select>
+
+</mapper>

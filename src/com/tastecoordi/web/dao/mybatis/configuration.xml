@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name='driver'
+					value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+				<property name='url'
+					value="jdbc:sqlserver://211.238.142.250:1433;databaseName=freestyledb;" />
+				<property name='username' value="ssh" />
+				<property name='password' value="ssh0413" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+
+		<mapper resource="com/tastecoordi/web/dao/mybatis/mapper/ClothesDao.xml"></mapper>
+		<mapper resource="com/tastecoordi/web/dao/mybatis/mapper/MemberDao.xml"></mapper>
+
+		<mapper resource="com/tastecoordi/web/dao/mybatis/mapper/Coordination.xml"></mapper>
+		<mapper resource="com/tastecoordi/web/dao/mybatis/mapper/NoticeDao.xml"></mapper>
+		<mapper resource="com/tastecoordi/web/dao/mybatis/mapper/NoticeFileDao.xml"></mapper>
+		<mapper resource="com/tastecoordi/web/dao/mybatis/mapper/CommentsDao.xml"></mapper>
+		<mapper resource="/com/tastecoordi/web/dao/mybatis/mapper/ClothesCoordi.xml"></mapper>
+	</mappers>
+</configuration>
+

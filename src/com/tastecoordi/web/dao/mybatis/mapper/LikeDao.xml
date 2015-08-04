@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tastecoordi.web.dao.LikeDao"> 
+	<insert id="addLike" parameterType="com.tastecoordi.web.vo.Like">
+		INSERT INTO Likes(MID, CODICODE) VALUES (#{mid},#{codiCode})
+	</insert>
+	
+	<select id="getLike" parameterType = "string" resultType="com.tastecoordi.web.vo.Like">
+ 		SELECT * FROM Likes WHERE MID=#{mid}
+ 	</select>
+ 	
+ 
+ 	<delete id="removeLike" parameterType = "string">
+ 		DELETE Likes WHERE MID =#{mid}
+ 	
+ 	</delete>
+	
+</mapper>

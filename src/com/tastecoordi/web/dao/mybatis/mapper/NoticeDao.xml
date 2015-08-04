@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tastecoordi.web.dao.NoticeDao">
+	<insert id="addNotice" parameterType="com.tastecoordi.web.vo.Notice">
+		<selectKey keyProperty="mid" order="BEFORE" resultType="String">
+			select MID from MEMBERROLES where RCODE='1' AND MID=#{mid} ;
+		</selectKey>
+		INSERT INTO NOTICES(NUMBER,CONTENT, DATE, LINK,IMAGE,MID)
+		VALUES ((SELECT IsNull(max(cast(number as INT)),0)+1 FROM
+		NOTICES),#{content},getDate(),#{link},#{image},#{mid})
+	</insert>
+	<delete id="removeNotice" parameterType="string">
+		DELETE FROM NOTICES
+		WHERE NUMBER = #{number}
+		UPDATE NOTICES SET NUMBER = NUMBER - 1 WHERE
+		NUMBER > #{number}
+	</delete>
+	<select id="getNotices" resultType="com.tastecoordi.web.vo.Notice">
+		select * from 
+		(select ROW_NUMBER() OVER (order by DATE DESC) NUM, NOTICES.* FROM NOTICES
+		where ${field} like '%${query}%' and
+		DATE between CONVERT(DATETIME, #{startDate}) and CONVERT(DATETIME,
+		#{endDate})) N
+		WHERE N.NUM BETWEEN 1 + (${page}-1)*10 AND 10*${page}
+	</select>
+	
+	
+	
+	<select id="getNotice" parameterType="String" resultType="com.tastecoordi.web.vo.Notice">
+	SELECT * FROM NOTICES WHERE NUMBER=#{number}
+	</select>
+	
+	<select id="getLastNumber" resultType="int">
+		SELECT IsNull(max(cast(number as INT)),0) number from NOTICES
+	</select>
+	
+	
+	
+
+</mapper>

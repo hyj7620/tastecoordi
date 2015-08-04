@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tastecoordi.web.dao.JjimsDao">
+
+<select id="getJjims" resultType="com.tastecoordi.web.vo.Jjims">
+SELECT * 
+FROM JJIMS
+
+</select>
+
+<insert id="addJjims" parameterType="com.tastecoordi.web.vo.Jjims">
+INSERT INTO JJIMS(MID, CLOTHESCODE, REGDATE) VALUES(#{mid},#{clothesCode},#{regDate})
+</insert>
+
+<delete id="removeJjims" parameterType="string">
+DELETE FROM JJIMS WHERE MID = #{mid}
+</delete>
+</mapper>

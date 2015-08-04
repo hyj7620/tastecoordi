@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tastecoordi.web.dao.CoordinationDao">
+
+	<insert id="addCodi" parameterType="com.tastecoordi.web.vo.Coordination">
+		<selectKey keyProperty="temp" order="BEFORE" resultType="String">
+			SELECT ISNULL(MAX(SUBSTRING(code,4,3)),0)+1 FROM Coordinations WHERE
+			MID LIKE #{mid}
+		</selectKey>
+
+		INSERT INTO Coordinations(CODE, Title, MID, Style)
+		VALUES
+		((#{mid}+(REPLICATE('0', 3 -
+		LEN(#{temp}))+#{temp})),#{title},#{mid},#{style})
+	</insert>
+
+	<!-- (String code) -->
+	<delete id="delCodi" parameterType="String">
+		DELETE Coordinations WHERE
+		CODE LIKE #{code}
+	</delete>
+
+	<select id="getCodis" resultType="com.tastecoordi.web.vo.Coordination">
+		SELECT * FROM Coordinations
+	</select>
+	
+	<select id="getCodi" parameterType="String"
+		resultType="com.tastecoordi.web.vo.Coordination">
+		SELECT * FROM Coordinations Where Code =#{code}
+	</select>
+
+	<!-- <select id="getCodi" parameterType="String" resultType="com.tastecoordi.web.vo.Coordination"> 
+		SELECT * FROM NOTICES WHERE CODE=#{code} </select> -->
+
+<!-- 	<select id="getCodi" parameterType="String"
+		resultType="com.tastecoordi.web.vo.Coordination">
+		SELECT Coordinations.Code, Coordinations.Title,
+		Coordinations.Mid, Coordinations.Style, Coordinations.img,
+		Coordinations.hit, Members.image
+		FROM Coordinations LEFT OUTER JOIN
+		Members ON Coordinations.Mid = Members.ID
+		Where Coordinations.Code =
+		#{mid}
+	</select> -->
+
+</mapper>
+

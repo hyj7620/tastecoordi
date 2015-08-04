@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tastecoordi.web.dao.EnterpriseDao"> 
+	
+	<insert id="addEnterprise" parameterType="com.tastecoordi.web.vo.Enterprise">
+		INSERT INTO ENTERPRISES(MID, LINK, PHONENUMBER,ALLOWDAY, REQUESTDATE) VALUES(#{MID},#{Link},#{PhoneNumber},getDate(),getDate())
+	
+	</insert>
+	<select id="getEnterprise" parameterType = "string" resultType="com.tastecoordi.web.vo.Enterprise">
+ 		SELECT * FROM Enterprises WHERE MID=#{id}
+ 	</select>
+ 	
+ 	<delete id="removeEnterprise" parameterType = "string">
+ 		DELETE Enterprises WHERE MID =#{id}	
+ 	</delete>	
+</mapper>

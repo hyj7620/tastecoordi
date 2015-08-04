@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tastecoordi.web.dao.CommentsDao">
+
+<select id="getComments" resultType="com.tastecoordi.web.vo.Comments">
+SELECT * FROM Comments
+</select>
+
+<insert id="addComments" parameterType="com.tastecoordi.web.vo.Comments">
+INSERT INTO COMMENTS(CODE, MID, CODICODE, REGDATE, CONTENT) 
+				VALUES(#{code},#{mid},#{codiCode},#{regDate},#{content})
+</insert>
+
+<delete id="removeComments" parameterType="string">
+DELETE FROM COMMENTS WHERE MID = #{code}
+</delete>
+</mapper>

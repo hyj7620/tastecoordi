@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tastecoordi.web.dao.MemberDao"> 
+	<insert id="addMember" parameterType="com.tastecoordi.web.vo.Member">
+		<selectKey keyProperty="id" order="AFTER" resultType="string">
+			select id from members where id = #{id};
+		</selectKey>
+		INSERT INTO MEMBERS(ID, NAME, PW, EMAIL,REGDATE,IMAGE) VALUES (#{id},#{name},#{pw},#{email},getDate(),#{image})	
+		INSERT INTO MEMBERROLES(RCODE,MID) VALUES ('3',#{id})		
+	</insert> 
+	<!--  <select id="getMembers" resultType="com.tastecoordi.web.vo.Member">
+		select * from MEMBERS where ${field} like '%${query}%'
+	</select>-->
+	 <select id="getMember" parameterType="string" resultType="com.tastecoordi.web.vo.Member">
+		SELECT * FROM MEMBERS WHERE ID = #{id}
+	</select>
+	<delete id="removeMember" parameterType="string">
+		DELETE FROM MEMBERROLES WHERE MID = #{id}
+		DELETE FROM MEMBERS WHERE ID = #{id}
+	</delete>
+	<select id="getMembers" resultType="com.tastecoordi.web.vo.Member">
+	select * from 
+			(select ROW_NUMBER() OVER (order by REGDATE DESC) NUM, MEMBERS.* FROM MEMBERS 
+				where ${field} like '%${query}%' and 
+				REGDATE between CONVERT(DATETIME, #{startDate}) and CONVERT(DATETIME, #{endDate})) M 
+			WHERE M.NUM BETWEEN 1 + (${page}-1)*10 AND 10*${page}
+	</select>
+	<!--  <insert id="addMemberRoles" parameterType="com.tastecoordi.web.vo.Member">
+		<selectKey keyProperty="mid" order="BEFORE" resultType="string">
+			select id from members where id=#{mid};
+		</selectKey>
+		INSERT INTO MEMBERROLES(MID) VALUES (#{id})		
+	</insert>--> 		
+	
+</mapper>

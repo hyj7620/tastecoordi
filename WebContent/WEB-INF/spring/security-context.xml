@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+		xmlns:mvc="http://www.springframework.org/schema/mvc"
+		 xmlns:context="http://www.springframework.org/schema/context"
+		  xmlns="http://www.springframework.org/schema/security"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		        http://www.springframework.org/schema/beans/spring-beans.xsd
+				http://www.springframework.org/schema/mvc
+		        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		        http://www.springframework.org/schema/context
+		        http://www.springframework.org/schema/context/spring-context.xsd
+		        http://www.springframework.org/schema/security
+       			 http://www.springframework.org/schema/security/spring-security.xsd
+        		">
+<!-- 		<http>
+		<form-login
+			login-page="/joinus/login"
+			default-target-url="/customer/notice"/>
+			
+		<intercept-url pattern="/customer/noticeDetail" access="ROLE_USER"/>
+		<intercept-url pattern="/customer/noticeReg" access="ROLE_ADMIN"/> 	
+	</http>인증이 필요한 페이지(글쓰기 등)에서 인증하겠다고 인터럽트 걸어야.
+	
+	
+	데이터베이스 연동, 사용자 이름 쿼리 가져오기 
+	<authentication-manager>
+		<authentication-provider>
+			<jdbc-user-service 
+				data-source-ref="dataSource"	
+				users-by-username-query="
+					SELECT UID USERID, PWD PASSWORD, 1 ENABLED
+					FROM MEMBERS
+					WHERE UID=?
+				"	
+				authorities-by-username-query="
+				 SELECT MemberUid USERID, RoleName AUTHORITIES
+		         FROM MEMBERRoles
+		         WHERE MemberUID=?
+         		"
+			/>
+		
+			 <user-service>
+				<user name="ssh" password="1234" authorities="ROLE_USER, ROLE_ADMIN"/> 관리자 기능 가지고 있는 사람만 noticeReg 접근 가능
+			</user-service> 
+			
+		</authentication-provider>
+	</authentication-manager> -->
+
+</beans:beans>

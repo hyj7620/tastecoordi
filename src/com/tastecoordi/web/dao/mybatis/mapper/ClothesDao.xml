@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tastecoordi.web.dao.ClothesDao"> 
+	
+	<insert id="addClothes" parameterType="com.tastecoordi.web.vo.Clothes">
+		INSERT INTO CLOTHES(code,mid,ImageName,price,SiteName,Link,Color,Categories,RegDATE) 
+		VALUES (#{code},#{mid},#{ImageName},#{price},#{SiteName},#{Link},#{Color},#{Categories},getDate())
+	</insert>
+	
+	<select id="getCloth" parameterType="string" resultType="com.tastecoordi.web.vo.Clothes">
+		select * FROM Clothes WHERE Mid =#{mid}
+	</select>
+	
+	<delete id="removeClothes" parameterType="string">
+	Delete CLOTHES where Code = #{code};
+	</delete>
+	
+	<select id="getClothes" resultType="com.tastecoordi.web.vo.Clothes">
+	SELECT * FROM (SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM,
+				 Clothes.* FROM Clothes where ${field}
+				  LIKE '%${query}%' and REGDATE between convert(DATETIME,#{startDate}) and 
+				 convert(DATETIME,#{endDate}))C WHERE C.NUM BETWEEN 1 + (${page} - 1) * 10 
+				 AND 10 * ${page}
+	</select>
+</mapper>
