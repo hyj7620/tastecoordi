@@ -126,6 +126,13 @@
 	text-align: center; 
 }
 
+#overview li{
+	float:left;
+}
+
+#coordi-item li{
+	float:left;
+}
 
 #clear{
 	clear:both;

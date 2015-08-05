@@ -103,7 +103,8 @@
 					</nav>
 				<!------------3. 상단 우측 두번째 나누기 끝----------->		
 		
-					<section id="clear" >
+					<div id="clear"></div>
+					<section>
 					<!-- 코디 댓글 입력 폼 -->
 						<form>
 							<fieldset>
@@ -159,9 +160,10 @@
 		<!-- ---------2.코디 상세페이지 우측 칸 끝---------------------->
 
 <!-- ---------1.코디 상세페이지 하단---------------------->
-	<section id = "clear">
-		<nav>
-			<h1>Overview</h1>
+	<div id="clear"></div>
+	<section>
+		<nav id= "overview">
+			<h1><img src="../resource/image/css/overview.jpg" alt="Overview"></h1>
 			<!-- 이미지 리스트로 출력 가로 5개, 줄바꿈. css로-->
 			<ul>
 				<li><a href=""><img src="" alt="이미지1"></a></li>
@@ -177,10 +179,10 @@
 			</ul>
 		</nav>
 
+	<div id="clear"></div>
 
-
-		<nav>
-			<h1>해당 코디에 사용된 아이템</h1>
+		<nav id= "coordi-item">
+			<h1><img src="../resource/image/css/coordi-item.jpg" alt="해당 코디에 사용된 아이템"></h1>
 			<!-- 이미지 리스트로 출력 가로 5개, 줄바꿈. css로-->
 			<ul>
 				<li><a href=""><img src="" alt="이미지1"></a></li>
