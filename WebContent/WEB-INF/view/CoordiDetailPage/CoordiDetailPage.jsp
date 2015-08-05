@@ -25,16 +25,19 @@
 <div id = "top"></div>
 
 <body id = "body">
-	<header id = "header">
-		<h1>
-			<a href="메인페이지 링크주소"><img src="../resource/image/css/logo.png"
-				alt="tastes coordi 로고"></a>
-		</h1>
+		<header id="header">
+		<h1 class="Hidden">로고</h1>
+			<nav class="content-wrapper">
+				<h1>
+					<img src="../resource/image/css/logo.png" alt="TASTES COORDI">
+				</h1>
+			</nav>
+
 	</header>
 
 	<aside id = "aside">
 
-		<h1 class = "hidden">메인메뉴</h1>
+		<h1 class = "Hidden">메인메뉴</h1>
 
 		<ul>
 		
@@ -45,107 +48,118 @@
 			<li><a href=""><img src="../resource/image/css/q&a-icon.png" alt="Q&A"></a></li>
 			<li><a href=""><img src="../resource/image/css/company-icon.png" alt ="company"></a></li>
 		</ul>
-
 	</aside>
+
+	<div class="fix"></div>
+	
 
 	<section>
 
+
 		<main id = "main">
 
-		<h1 class = "hidden">코디 상세페이지</h1>
-
-
-		<section>
-			<h1>코디 이미지</h1>
-			<img src="" alt="코디 이미지">
-		</section>
-
-		<!-- 코디 상세페이지 우측 칸 -->
-		<section>
-			<h1>코디설명</h1>
-			<section>
-				<h1>코디 저작정보</h1>
-				
-				${codi.title} created by ${codi.mid}<br>
-				
-
-
-				<%-- <c:forEach var="d" items="${codilist}">
-					${d.title} created by ${d.mid}<br>  <!-- 코디네이션의 제목? 코드?, 아이디 -->
-				</c:forEach> --%>
-			</section>
-
-			<section>
-				<h1 class = "hidden">설명</h1>
-				설명 :
-				<p>
-					<%-- ${d.title} --%>
-				</p>
-				<!-- 코디네이션의 타이틀. 코디 룸 등록시 입력한거 불러와야 함. -->
-
-
-				<!-- 코디 댓글 입력 폼 -->
-				<form>
-					<fieldset>
-						<legend>댓글</legend>
-						<dl>
-							<dd>
-								<textarea cols="50" rows="5" name="content"></textarea>
-							</dd>
-						</dl>
-						<div>
-							<input type="submit" value="입력">
-						</div>
-					</fieldset>
-				</form>
-
-
-
-				<section>
-					<h1 class = "hidden">댓글 목록</h1>
-					<table>
-						<thead>
-
-							<tr>
-								<th>코드</th>
-								<th>작성자</th>
-								<th>코디코드</th>
-								<th>날짜</th>
-								<th>내용</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="n" items="${list}">
-								<tr>
-									<td>${n.code}</td>
-									<td>${n.mid}</td>
-									<td><a href="CoordiDetailPage?c=${n.codiCode}">${n.codiCode}</td>
-									<td>${n.regDate}</td>
-									<td>${n.content}</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-
+		<h1 class = "Hidden">코디 상세페이지</h1>
+<!-- -----------------1. 코디 상세페이지 상단 -------------------->
+		<!-- ---------2. 상단 좌측 코디 이미지 -------------------->
+				<section id = "coordi-img" >
+					<h1 class = "Hidden">코디 이미지</h1>
+					<img src="" alt="코디 이미지">
 				</section>
+		<!------------2. 상단 좌측 코디 이미지 끝 -------------------->
 
-			</section>
+		
+		<!-- ---------2. 상단 우측 칸 ----------------->
+				<section id = "coordi-contents">
+					<h1 class = "Hidden">코디설명</h1>
+				<!------------3. 상단 우측 두번째 나누기----------->		
+					<section id = "coordi-copyright">
+						<h1>코디 저작정보</h1>
+						
+						${codi.title} created by ${codi.mid}<br>
+								<h1 class = "Hidden">설명</h1>
+								설명 :
+								<p>
+									<%-- ${d.title} --%>
+								</p>
+								<!-- 코디네이션의 타이틀. 코디 룸 등록시 입력한거 불러와야 함. -->
+		
+						<%-- <c:forEach var="d" items="${codilist}">
+							${d.title} created by ${d.mid}<br>  <!-- 코디네이션의 제목? 코드?, 아이디 -->
+						</c:forEach> --%>
+					</section>
+					
+					
+					<nav id = "coordi-like">
+						<h1 class = "Hidden">프로필 사진, 좋아요</h1>
+						<ul>
+							<li><a href=""><img src="" alt="프로필 사진"></a></li>
+							<li><a href=""><img src="../resource/image/css/follow.jpg" alt="팔로우 이미지"></a></li>
+							<li><a href=""
+								onclick="javascript:window.open('LikePop.html','popup','scrollbars=no, resizable=no, width=300,height=200')";returnfalse">
+									<img src="../resource/image/css/like.JPG" alt="좋아요 이미지">
+							</a></li>
+							<!-- 좋아요 팝업창, 마이페이지로 이동 -->
+						</ul>
+					</nav>
+				<!------------3. 상단 우측 두번째 나누기 끝----------->		
+		
+					<section id="clear" >
+					<!-- 코디 댓글 입력 폼 -->
+						<form>
+							<fieldset>
+								<legend>댓글</legend>
+								<dl>
+									<dd>
+										<textarea cols="50" rows="5" name="content"></textarea>
+									</dd>
+								</dl>
+								<div>
+									<input type="submit" value="입력">
+								</div>
+							</fieldset>
+						</form>
+		
+		
+		
+						<p>
+						<section id="comment-list">
+							<h1 class = "Hidden">댓글 목록</h1>
+							<table>
+								<thead>
+		
+									<tr>
+										<th>코드</th>
+										<th>작성자</th>
+										<th>코디코드</th>
+										<th>날짜</th>
+										<th>내용</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="n" items="${list}">
+										<tr>
+											<td>${n.code}</td>
+											<td>${n.mid}</td>
+											<td><a href="CoordiDetailPage?c=${n.codiCode}">${n.codiCode}</td>
+											<td>${n.regDate}</td>
+											<td>${n.content}</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+		
+						</section>
+						</p>
+		
+					</section>
+		
+		
+					
+				</section>
+		<!-- ---------2.코디 상세페이지 우측 칸 끝---------------------->
 
-
-			<nav>
-				<h1 class = "hidden">프로필 사진, 좋아요</h1>
-				<ul>
-					<li><a href=""><img src="" alt="프로필 사진"></a></li>
-					<li><a href=""><img src="" alt="팔로우 이미지"></a></li>
-					<li><a href=""
-						onclick="javascript:window.open('LikePop.html','popup','scrollbars=no, resizable=no, width=300,height=200')";returnfalse">
-							<img src="" alt="좋아요 이미지">
-					</a></li>
-					<!-- 좋아요 팝업창, 마이페이지로 이동 -->
-				</ul>
-			</nav>
-		</section>
-
+<!-- ---------1.코디 상세페이지 하단---------------------->
+	<section id = "clear">
 		<nav>
 			<h1>Overview</h1>
 			<!-- 이미지 리스트로 출력 가로 5개, 줄바꿈. css로-->
@@ -164,6 +178,7 @@
 		</nav>
 
 
+
 		<nav>
 			<h1>해당 코디에 사용된 아이템</h1>
 			<!-- 이미지 리스트로 출력 가로 5개, 줄바꿈. css로-->
@@ -179,14 +194,17 @@
 				
 			</ul>
 		</nav>
+	</section>
+<!-- ---------1. 코디 상세페이지 하단 끝---------------------->
 
 
 		</main>
 	</section>
 
+
 	<footer id = "footer">
 		<section>
-			<h1 >저작권 정보</h1>
+			<h1 class="Hidden">저작권 정보</h1>
 			<p>FreeStyle Copyrightⓒ2015</p>
 		</section>
 	</footer>
