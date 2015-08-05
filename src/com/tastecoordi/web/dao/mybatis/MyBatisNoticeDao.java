@@ -56,7 +56,7 @@ public class MyBatisNoticeDao implements NoticeDao {
 
 		// SqlSession session = factory.openSession();
 		List<Notice> list = session.selectList("getNotices", params);
-		session.close();
+		//session.close();
 
 		return list;
 	}

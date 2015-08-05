@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 				<property name='driver'
 					value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
 				<property name='url'
-					value="jdbc:sqlserver://211.238.142.250:1433;databaseName=freestyledb;" />
+					value="jdbc:sqlserver://db.newlecture.com:1433;databaseName=freestyledb;" />
 				<property name='username' value="ssh" />
 				<property name='password' value="ssh0413" />
 			</dataSource>

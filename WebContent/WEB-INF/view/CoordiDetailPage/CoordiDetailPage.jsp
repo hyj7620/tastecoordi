@@ -16,39 +16,43 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-
+<title>코디 상세페이지</title>
+<link href="../resource/css/reset.css" type="text/css" rel="stylesheet"/>
+<link href="../resource/css/layout.css" type="text/css" rel="stylesheet"/>
 
 </head>
-<body>
-	<header id="header 로고만.">
+
+<div id = "top"></div>
+
+<body id = "body">
+	<header id = "header">
 		<h1>
-			<a href="메인페이지 링크주소"><img src="../ 로고 이미지 주소"
+			<a href="메인페이지 링크주소"><img src="../resource/image/css/logo.png"
 				alt="tastes coordi 로고"></a>
 		</h1>
 	</header>
 
-	<aside>
+	<aside id = "aside">
 
-		<h1>메인메뉴</h1>
+		<h1 class = "hidden">메인메뉴</h1>
 
 		<ul>
-
-			<li><a href="">Mypage</a></li>
-			<li><a href="">Log Out</a></li>
-			<li><a href="">Coordi</a></li>
-			<li><a href="">Serch</a></li>
-			<li><a href="">Q&A</a></li>
-			<li><a href="">company</a></li>
+		
+			<li><a href=""><img src="../resource/image/css/mypage-icon.png" alt="Mypage"></a></li>
+			<li><a href=""><img src="../resource/image/css/login-icon.png" alt="Log Out"></a></li>
+			<li><a href=""><img src="../resource/image/css/coordi-icon.png" alt = "Coordi"></a></li>
+			<li><a href=""><img src="../resource/image/css/search-icon.png" alt="Serch"></a></li>
+			<li><a href=""><img src="../resource/image/css/q&a-icon.png" alt="Q&A"></a></li>
+			<li><a href=""><img src="../resource/image/css/company-icon.png" alt ="company"></a></li>
 		</ul>
 
 	</aside>
 
 	<section>
 
-		<main>
+		<main id = "main">
 
-		<h1>코디 상세페이지</h1>
+		<h1 class = "hidden">코디 상세페이지</h1>
 
 
 		<section>
@@ -72,7 +76,7 @@
 			</section>
 
 			<section>
-				<h1>설명</h1>
+				<h1 class = "hidden">설명</h1>
 				설명 :
 				<p>
 					<%-- ${d.title} --%>
@@ -98,7 +102,7 @@
 
 
 				<section>
-					<h1>댓글 목록</h1>
+					<h1 class = "hidden">댓글 목록</h1>
 					<table>
 						<thead>
 
@@ -129,7 +133,7 @@
 
 
 			<nav>
-				<h1>프로필 사진, 좋아요</h1>
+				<h1 class = "hidden">프로필 사진, 좋아요</h1>
 				<ul>
 					<li><a href=""><img src="" alt="프로필 사진"></a></li>
 					<li><a href=""><img src="" alt="팔로우 이미지"></a></li>
@@ -180,9 +184,9 @@
 		</main>
 	</section>
 
-	<footer>
+	<footer id = "footer">
 		<section>
-			<h1>저작권 정보</h1>
+			<h1 >저작권 정보</h1>
 			<p>FreeStyle Copyrightⓒ2015</p>
 		</section>
 	</footer>

@@ -12,13 +12,18 @@
 <head>
 <meta charset="UTF-8">
 <title>TSNotice</title>
+<link href="../resource/css/reset.css" type="text/css" rel="stylesheet"/>
+<link href="../resource/css/layout.css" type="text/css" rel="stylesheet"/>
 </head>
-<body>
 
-   <header>
+<div id = "top"></div>
+
+<body id = "body">
+
+   <header id="header">
 
       <h1>
-         <img src="../images/logo.png" alt="TASTES COORDI">
+         <img src="../resource/image/css/logo.png" alt="TASTES COORDI">
       </h1>
       <section>
       <h1>로고</h1>
@@ -35,7 +40,7 @@
       </section>
    </header>
 
-   <aside>
+   <aside id= "aside">
 
       <h1>관리자메뉴</h1>
       <nav>
@@ -78,7 +83,7 @@
    </aside>
 
 
-   <main>
+   <main id="main">
    <section>
          <h1>공지사항 목록</h1>
          <table>
